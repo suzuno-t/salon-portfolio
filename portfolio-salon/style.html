@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>テストページです-HTMLテスト</title>
+    <meta name="description" content="サイト内容" />
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="〜"></script>
+  </head>
+  <body>
+    <div id="header"></div>
+
+    <main>
+      <div id="container">
+        <h3 class="convey">Your style starts, here</h3>
+        <h1 class="subtitle">HAIRSTYLE catalog</h1>
+        <div class="hair-volume">
+          <h2>髪が繊細なあなたへ</h2>
+          <section class="short">
+            <h3>Short-hair</h3>
+            <div class="flex-container">
+              <img class="hair-style"  src="/images/ittleshorthair-woman2.jpeg" alt="">
+              <img class="hair-style"  src="/images/ittleshorthair-woman3.png" alt="">
+              <img class="hair-style"  src="/images/ittleshorthair-woman4.png" alt="">
+            </div>
+          </section>
+          <section class="long">
+            <h3>Long-hair</h3>
+            <div class="flex-container">
+              <img class="hair-style"  src="/images/littlelonghair-woman1.png" alt="">
+              <img class="hair-style"  src="/images/littlelonghair-woman2.png" alt="">
+              <img class="hair-style"  src="/images/littlesemithair-woman1.png" alt="">
+            </div>
+          </section>
+        </div>
+        <div class="hair-volume">
+          <h2>髪が豊かなあなたへ</h2>
+          <section class="short">
+            <h3>Short-hair</h3>
+            <div class="flex-container">
+              <img class="hair-style"  src="/images/manylshorthair-woman1.png" alt="">
+              <img class="hair-style"  src="/images/manylshorthair-woman2.png" alt="">
+              <img class="hair-style"  src="/images/manylshorthair-woman4.png" alt="">
+            </div>
+          </section>
+          <section class="long">
+            <h3>Long-hair</h3>
+            <div class="flex-container">
+              <img class="hair-style"  src="/images/manylonghair-woman2.png" alt="">
+              <img class="hair-style"  src="/images/manylonghair-woman3.png" alt="">
+              <img class="hair-style"  src="/images/manylonghair-woman4.png" alt="">
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <div id="footer"></div>
+
+    <script>
+      fetch("header.html")
+        .then((response) => response.text())
+        .then((data) => (document.querySelector("#header").innerHTML = data));
+      fetch("footer.html")
+        .then((response) => response.text())
+        .then((data) => (document.querySelector("#footer").innerHTML = data));
+    </script>
+  </body>
+</html>
