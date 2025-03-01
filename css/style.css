@@ -1,5 +1,7 @@
 @charset "utf-8";
-
+*{
+  border: #83d0e8 solid 1px;
+}
 /* 全体 */
 html,
 body,
@@ -64,21 +66,22 @@ footer .info {
   align-items: center;
 }
 /* ヘッダー */
+/* logo */
+.logo {
+  width: 150px;
+}
 /* ナビ */
 .nav .flex-container {
-  margin: 20px 0 0 20px;
-  width: 400px;
+  margin: 10px 0 0 10px;
 }
 .flex-container li {
   list-style-type: none;
-  width: 90px;
+  width: 80px;
   height: 50px;
-  padding: 5px;
   text-align: center;
   font-size: 25px;
   font-weight: bold;
   font-style: italic;
-  display: grid;
   place-items: center;
 }
 nav ul li a {
@@ -88,16 +91,12 @@ nav ul li a {
 .flex-container li a:hover {
   color: #83d0e8;
 }
-#logo {
-  width: 200px;
-  height: 50px;
-  margin: 20px 0px 0 20px;
-  background-size: cover;
-}
 #yoyaku {
-  width: 200px;
-  height: 100px;
+  width: 150px;
+  height: 80px;
   margin: 0 10px 0 0;
+ object-fit: contain;
+  
 }
 
 /* TOPページ */
@@ -210,7 +209,7 @@ nav ul li a {
   padding: 30px;
 }
 .hair-volume {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 .hair-volume h3 {
   margin-top: 15px;
