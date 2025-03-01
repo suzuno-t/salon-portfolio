@@ -103,7 +103,7 @@ nav ul li a {
 /* TOPページ */
 /* タイトル */
 #title-image {
-  background-image: url(/images/brownlonghair-woman2.png);
+  background-image: url(./images/brownlonghair-woman2.png);
   height: 600px;
   width: 100%;
   background-position: center; /* 背景画像を中央に配置 */
