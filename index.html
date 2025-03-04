@@ -126,25 +126,53 @@
         //   }, 4000);
         // });
 
-        const photo = {
-          num: 1,
-          next: function () {
-            if (this.num == 3) {
-              this.num = 1;
-            } else {
-              this.num++;
-            }
-            return "../images/background" + this.num + ".png";
-          },
-        };
-        setInterval(function () {
-          $("#title img")
-            .css("background", photo)
-            .fadeOut(700, function () {
-              $(this).attr("src", photo.next());
-              $(this).fadeIn(800);
+        // const photo = {
+        //   num: 1,
+        //   next: function () {
+        //     if (this.num == 3) {
+        //       this.num = 1;
+        //     } else {
+        //       this.num++;
+        //     }
+        //     return "../images/background" + this.num + ".png";
+        //   },
+        // };
+        // setInterval(function () {
+        //   $("#title img")
+        //     .css("background", photo)
+        //     .fadeOut(700, function () {
+        //       $(this).attr("src", photo.next());
+        //       $(this).fadeIn(800);
+        //     });
+        // }, 4500);
+
+        let speed = 1000; // フェードイン・フェードアウトの処理時間（1000で1秒）
+        let times = 5000; // 画像切り替えの間隔（1000で1秒）
+        let bgimages = [
+          "../images/background1.png",
+          "../images/background2.png",
+          "../images/background3.png", // 最後に,をつけない
+        ];
+        let position = ["-150px", "-100px", "0"];
+        $(function () {
+          // 現在の背景画像番号格納する変数
+          let thisnum = 0;
+          // 定期的に実行
+          setInterval(function () {
+            // 背景をフェードアウト
+            $("#title-image").fadeOut(speed, function () {
+              // 背景画像番号変更
+              thisnum = thisnum === bgimages.length - 1 ? 0 : thisnum + 1;
+              // 背景画像を変更しフェードイン
+              $(this)
+                .css({
+                  "background-image": "url(" + bgimages[thisnum] + ")",
+                  "background-position": position[thisnum] + " 0",
+                })
+                .fadeIn(speed);
             });
-        }, 4500);
+          }, times);
+        });
       });
     </script>
   </body>
