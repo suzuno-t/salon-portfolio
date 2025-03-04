@@ -1,5 +1,5 @@
 @charset "utf-8";
-*{
+* {
   border: #83d0e8 solid 1px;
 }
 /* 全体 */
@@ -66,6 +66,9 @@ footer .info {
   align-items: center;
 }
 /* ヘッダー */
+header .flex-container {
+  max-width: 100%;
+}
 /* logo */
 .logo {
   width: 150px;
@@ -95,16 +98,16 @@ nav ul li a {
   width: 150px;
   height: 80px;
   margin: 0 10px 0 0;
- object-fit: contain;
-  
+  object-fit: contain;
 }
 
 /* TOPページ */
 /* タイトル */
 #title-image {
-  background-image: url(../images/brownlonghair-woman2.png);
-  height: 600px;
-  width: 100%;
+  background-image: url(../images/background1.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 700px;
   background-position: center; /* 背景画像を中央に配置 */
   text-align: center;
   font-size: 40px;

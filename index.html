@@ -10,12 +10,21 @@
     />
     <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
     <link rel="stylesheet" href="./css/style.css" />
-    <script src="〜"></script>
+    <!-- slick -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script
+      type="text/javascript"
+      src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+    ></script>
   </head>
 
   <body>
     <div id="header"></div>
-
     <main>
       <!-- イメージ画像 -->
       <h1 id="title-image">
@@ -47,10 +56,14 @@
                 <br />トレンドを取り入れた最先端のスタイルから、定番のスタイル、そして髪質改善まで、幅広いメニューの中から、あなたにぴったりのメニューがきっと見つかります。
               </p>
             </div>
-            <a href="./menu.html"><img class="style" src="images/sekkyaku1.png" /></a>
+            <a href="./menu.html"
+              ><img class="style" src="images/sekkyaku1.png"
+            /></a>
           </section>
           <section class="flex-container">
-            <a href="./stuff.html"><img class="style" src="images/staff-woman4.png" /></a>
+            <a href="./stuff.html"
+              ><img class="style" src="images/staff-woman4.png"
+            /></a>
             <div class="menu">
               <h3 class="content"><a href="./stuff.html">- Stuff -</a></h3>
               <p class="content-detail">
@@ -66,7 +79,7 @@
           <div class="flex-container">
             <section class="reserve">
               <h3>Reserve</h3>
-              <a href="" 
+              <a href=""
                 ><img id="large-yoyaku" src="./images/reserve-logo.png"
               /></a>
             </section>
@@ -94,12 +107,45 @@
     <div id="footer"></div>
 
     <script>
-      fetch("header.html")
-        .then((response) => response.text())
-        .then((data) => (document.querySelector("#header").innerHTML = data));
-      fetch("footer.html")
-        .then((response) => response.text())
-        .then((data) => (document.querySelector("#footer").innerHTML = data));
+      //ヘッダーの挿入
+      $(document).ready(function () {
+        fetch("header.html")
+          .then((response) => response.text())
+          .then((data) => (document.querySelector("#header").innerHTML = data));
+        fetch("footer.html")
+          .then((response) => response.text())
+          .then((data) => (document.querySelector("#footer").innerHTML = data));
+
+        //タイトル画像
+        // $(function () {
+        //   var i = 1;
+        //   setInterval(function () {
+        //     if (i > 3) i = 1;
+        //     $("#title-image").css("background", "url('./images/background" + i + ".png')");
+        //     i++;
+        //   }, 4000);
+        // });
+
+        const photo = {
+          num: 1,
+          next: function () {
+            if (this.num == 3) {
+              this.num = 1;
+            } else {
+              this.num++;
+            }
+            return "../images/background" + this.num + ".png";
+          },
+        };
+        setInterval(function () {
+          $("#title img")
+            .css("background", photo)
+            .fadeOut(700, function () {
+              $(this).attr("src", photo.next());
+              $(this).fadeIn(800);
+            });
+        }, 4500);
+      });
     </script>
   </body>
 </html>
